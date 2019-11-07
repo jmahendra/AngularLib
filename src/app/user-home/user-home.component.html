@@ -1,0 +1,98 @@
+<h1 class='text-info' style="text-align: left;">Welcome {{book.userO.name}}</h1>
+<button type="submit" class="btn btn-outline-warning" (click)="viewBook()">viewBook</button>
+<button type="submit" class="btn btn-outline-warning" (click)="view()">view Allocated Book</button>
+<a routerLink="/searchbook"><button class="btn btn-secondary">
+        Search Book</button></a>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#exampleModal">
+    Change Password
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #form="ngForm" (ngSubmit)="change(form)">
+
+                    <div class="form-group">
+                        <input type="email" name="email" #email='ngModel' ngModel placeholder="Enter email..."
+                            class="form-control" email>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" #password='ngModel' ngModel
+                            placeholder="Enter new password..." class="form-control" password>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-success float-right">Change password</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="col-md-6 mt-5">
+    <table class="table table-bordered table-striped table-hover" *ngIf='value2'>
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Issue Date</th>
+                <th>Return</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let book of users1'>
+                <td>{{book.bId}}</td>
+                <td>{{book.bName}}</td>
+                <td>{{book.bAuthor}}</td>
+                <td>{{book.bCategory}}</td>
+                <td>{{book.date}}</td>
+                <td><button type="submit" class="btn btn-outline-success" (click)='return(book)'>Return</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-md-6 mt-5" *ngIf='value'>
+    <table class="table table-bordered table-striped table-hover" >
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Reuest</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let book of users'>
+                <td>{{book.bId}}</td>
+                <td>{{book.bName}}</td>
+                <td>{{book.bAuthor}}</td>
+                <td>{{book.bCategory}}</td>
+                <td><button type="submit" class="btn btn-outline-success" (click)='request(book)'>Request</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

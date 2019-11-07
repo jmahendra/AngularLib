@@ -1,0 +1,40 @@
+<div class="container" >
+    <div class="card card-body col-md-4 offset-4">
+        <form #search='ngForm' (ngSubmit)="getSearch(search)">
+            <div class="form-group">
+                <input type="search" name="bName" #bName="ngModel" ngModel placeholder="search book by name"
+                    class="form-control">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-outline-primary">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="col-md-6 mt-5" *ngIf='value'>
+    <table class="table table-bordered table-striped table-hover" >
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Reuest</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let book of array'>
+                <td>{{book.bId}}</td>
+                <td>{{book.bName}}</td>
+                <td>{{book.bAuthor}}</td>
+                <td>{{book.bCategory}}</td>
+                <td><button type="submit" class="btn btn-outline-success" (click)='request(book)'>Request</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

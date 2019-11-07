@@ -1,0 +1,28 @@
+<button class='float-right btn btn-success' type='submit' (click)="signout()">SingOut</button>
+<div class="col-md-7 mt-5">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Book Reuester Id</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Allocate</th>
+                <th>Deny</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let book of users'>
+                <td>{{book.bId}}</td>
+                <td>{{book.id}}</td>
+                <td>{{book.bName}}</td>
+                <td>{{book.bAuthor}}</td>
+                <td>{{book.bCategory}}</td>
+                <td><button type="submit" class="btn btn-outline-success" (click)='accept(book)'>Allocate</button></td>
+                <td><button type="submit" class="btn btn-outline-danger" (click)='delete(book)'>Deny</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

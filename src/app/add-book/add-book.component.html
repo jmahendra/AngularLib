@@ -1,0 +1,25 @@
+<button class='float-right btn btn-success' type='submit' (click)="signout()">SingOut</button>
+<div class="container">
+    <div class="col-md-4 offset 4 card card-body mt-4 bg-dark">
+        <form #book='ngForm' (ngSubmit)='addBook(book)'>
+            <div class="form-group">
+                <input type="hidden" name="bId" #bId="ngModel" [(ngModel)]='selectedUser.bId' class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" name="bName" #bName="ngModel" [(ngModel)]='selectedUser.bName'
+                    placeholder="Enter book name.." class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" name="bAuthor" #bAuthor="ngModel" [(ngModel)]='selectedUser.bAuthor'
+                    placeholder="Enter book author.." class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" name="bCategory" #bCategory="ngModel" [(ngModel)]='selectedUser.bCategory'
+                    placeholder="Enter book category..." class="form-control">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-outline-success float-right">Add book</button>
+            </div>
+        </form>
+    </div>
+</div>

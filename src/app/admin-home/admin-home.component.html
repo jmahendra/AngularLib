@@ -1,0 +1,111 @@
+<!-- <div class=" card card-body mt-4 bg-light">
+    <div class="container">
+        <h1>Welcome Admin</h1>
+    </div>
+</div> -->
+<ul class='list-group list-group-horizontal'>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#exampleModal">
+        Change Password
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form #form1="ngForm" (ngSubmit)="change(form1)">
+
+                        <div class="form-group">
+                            <input type="email" name="email" #email='ngModel' ngModel placeholder="Enter email..."
+                                class="form-control" email>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" #password='ngModel' ngModel
+                                placeholder="Enter new password..." class="form-control" password>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-outline-success float-right">Change password</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <li class="list-group-item">
+        <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#exampleModal1">
+            Add User
+        </button></li>
+    <li class="list-group-item"> <a style="padding-left: 50px;" routerLink="/getdata"><button class="btn btn-secondary">
+                View User</button></a>
+    </li>
+    <li class="list-group-item"> <a style="padding-left: 50px;" routerLink="/searchuser"><button class="btn btn-secondary">
+        Search User</button></a>
+</li>
+    <li class="list-group-item"> <button class=' btn btn-success ml-3' type='submit'
+            (click)="signout()">SingOut</button></li>
+</ul>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #form="ngForm" (ngSubmit)="postUser(form)">
+                    <div class="form-group">
+                        <input type="hidden" name="id" #id='ngModel' [(ngModel)]='selectedUser.id' class="form-control">
+
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="name" #name='ngModel' [(ngModel)]='selectedUser.name'
+                            placeholder="Enter  name.." class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" #email='ngModel' [(ngModel)]='selectedUser.email'
+                            placeholder="Enter email..." class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="phno" #phno='ngModel' [(ngModel)]='selectedUser.phno'
+                            placeholder="Enter phno.." class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <h5 style="color: crimson;">User role:</h5>
+                        <select name="role" #role='ngModel' [(ngModel)]='selectedUser.role'
+                            placeholder="Select user Role" class="form-control">
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                            <option value="librarian">Librarian</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="reset" class="btn btn-outline-warning float-left">reset
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-outline-success float-right">Register
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+  

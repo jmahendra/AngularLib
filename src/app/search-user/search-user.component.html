@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="col-md-4 mt-4 card card-body">
+        <form #search='ngForm' (ngSubmit)="searchUser(search)">
+            <div class="form-group">
+                <input type="text" name="name" #name='ngModel' ngModel placeholder="Enter  name.." class="form-control">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-outline-success float-right">Search
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-6">
+
+        <table class="table table-hover mt-4" *ngIf='m'>
+            <thead>
+                <tr class="table-success">
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>MobileNo</th>
+                    <th>Role</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let user of users'>
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phno}}</td>
+                    <td>{{user.role}}</td>
+                    <td><button type="submit" class="btn btn-outline-danger" (click)='delete(user)'>Delete</button></td>
+                    <td><button type="submit" class="btn btn-outline-warning" (click)='update(user)'>Update</button>
+                    </td>
+
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>

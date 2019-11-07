@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.bg-img{
+    background-image: url('https://cdn.pixabay.com/photo/2016/11/21/14/12/books-1845614__340.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    height: 100%;
+}
